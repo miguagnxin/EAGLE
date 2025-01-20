@@ -42,7 +42,6 @@ We provide the following models:
 | Eagle2-1B | [Qwen2.5-0.5B-Instruct](https://huggingface.co/Qwen/Qwen2.5-0.5B-Instruct) |  Siglip    | 16K| [🤗 link](https://huggingface.co/nvidia/Eagle2-1B)|
 | Eagle2-2B | [Qwen2.5-1.5B-Instruct](https://huggingface.co/Qwen/Qwen2.5-1.5B-Instruct) |  Siglip    | 16K| [🤗 link](https://huggingface.co/nvidia/Eagle2-2B)|
 | Eagle2-9B | [Qwen2.5-7B-Instruct](https://huggingface.co/Qwen/Qwen2.5-7B-Instruct) |  Siglip+ConvNext    | 16K| [🤗 link](https://huggingface.co/nvidia/Eagle2-9B)|
-| Eagle2-34B | [Qwen2.5-32B-Instruct](https://huggingface.co/Qwen/Qwen2.5-32B-Instruct) |  Siglip+ConvNext    | 16K| [🤗 link](https://huggingface.co/nvidia/Eagle2-34B)|
 
 ## Benchmark Results
 <details>
