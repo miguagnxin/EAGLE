@@ -108,22 +108,7 @@ We provide the following models:
 
 ##### Eagle2-34B Results
 
-|          Benchmark           | VILA-1.5-40B | InternVL2-40B | InternVL2.5-38B |NVLM-D-72B| Eagle2-34B|
-| :--------------------------: | :------------------: | :----------------: | :----------: |:----------: |:----------: |
-|                              |                      |                    |              | | |
-|    DocVQA<sub>test</sub>     |         -         |        93.9        |     **95.3**     |92.6|93.9|
-|    ChartQA<sub>test</sub>    |          67.2           |        86.2        |     88.2     |85.2|**89.0**|
-|    InfoVQA<sub>test</sub>    |          -           |        78.7       |     **83.6**    | - |82.9|
-|    TextVQA<sub>val</sub>     |         73.6         |       83.0        |     82.7     |82.1|**84.6**|
-|           OCRBench           |         460         |        837         |     842      |853|**895**|
-|      MME<sub>sum</sub>       |        -        |      2307.5       |    **2455.8**    |  - |2406.87|
-|         RealWorldQA          |          -         |        71.8        |     **73.5**     | - |73.2|
-|     AI2D<sub>test</sub>      |         69.9        |        86.6        |     87.6     | 85.2 |**88.0**|
-|      MMMU<sub>val</sub>      |         55.1         |    55.2     | **63.9**  |59.7|63.4|
-| MMVet<sub>GPT-4-Turbo</sub>  |         -         |        65.5       |   68.8     | - |**69.3**|
-|   HallBench<sub>avg</sub>    |         -         |        56.9        |     56.8     | -|**57.3**|
-| MathVista<sub>testmini</sub> |         49.5         |        63.7        |     **71.9**     |66.6|67.0|
-| MMstar |             -    |      65.4    |      67.9|- |**69.4**|
+TODO
 
 ## Stremlit Demo
 
