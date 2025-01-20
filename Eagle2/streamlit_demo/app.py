@@ -1,6 +1,5 @@
 # Copyright 2025 NVIDIA CORPORATION & AFFILIATES
-# we make some changes to the original code "https://github.com/OpenGVLab/InternVL/blob/main/streamlit_demo/"
-# to make it work with our Eagle2 model and also support video input.
+
 # --------------------------------------------------------
 # InternVL
 # Copyright (c) 2024 OpenGVLab
@@ -34,7 +33,7 @@ custom_args = sys.argv[1:]
 parser = argparse.ArgumentParser()
 parser.add_argument('--controller_url', type=str, default='http://127.0.0.1:10075', help='url of the controller')
 parser.add_argument('--sd_worker_url', type=str, default='http://0.0.0.0:40006', help='url of the stable diffusion worker')
-parser.add_argument('--max_image_limit', type=int, default=32, help='maximum number of images')
+parser.add_argument('--max_image_limit', type=int, default=128, help='maximum number of images')
 args = parser.parse_args(custom_args)
 controller_url = args.controller_url
 sd_worker_url = args.sd_worker_url
@@ -304,13 +303,13 @@ logo_code = """
     </linearGradient>
   </defs>
   <text x="000" y="160" font-size="180" font-weight="bold" fill="url(#gradient1)" style="font-family: Arial, sans-serif;">
-    NVLM-Eagle Demo
+    Eagle2 Demo
   </text>
 </svg>
 """
 
 # App title
-st.set_page_config(page_title='NVLM-Eagle')
+st.set_page_config(page_title='Eagle2')
 
 if 'uploader_key' not in st.session_state:
     st.session_state.uploader_key = 0
@@ -327,7 +326,7 @@ with st.sidebar:
     st.subheader('Models and parameters')
     selected_model = st.sidebar.selectbox('Choose a Eagle chat model', model_list, key='selected_model',
                                           on_change=clear_chat_history,
-                                          help='We depolyed three models: 9B, 32B and Video-8B. 9B and 32B are only trained on image data, while Video-8B (ongoing project) is trained on image/video data.')
+                                          help='We depolyed these models: 1B, 2B, 9B, 34B and Video-8B. 1/2/9/34B are only trained on image data, while Video-8B (ongoing project) is trained on image/video data.')
     with st.expander('🤖 System Prompt'):
         persona_rec = st.text_area('System Prompt', value=system_message_short,
                                    help='System prompt is a pre-defined message used to instruct the assistant at the beginning of a conversation.',
@@ -389,7 +388,7 @@ gradient_text_html = """
     font-size: 3em;
 }
 </style>
-<div class="gradient-text">NVLM-Eagle</div>
+<div class="gradient-text">Eagle2</div>
 """
 
 st.markdown(gradient_text_html, unsafe_allow_html=True)
@@ -403,12 +402,12 @@ if 'messages' not in st.session_state.keys():
 gallery_placeholder = st.empty()
 with gallery_placeholder.container():
     examples = ['gallery/demo2.jpg', 'gallery/demo4.jpg',
-                'gallery/demo5.jpg', 'gallery/demo6.jpg',
+                'gallery/demo12.jpg', 'gallery/demo6.jpg',
                 'gallery/demo8.jpg', 'gallery/demo9.jpg', 'gallery/demo11.jpg']
     images = [Image.open(image).convert('RGB') for image in examples]
     captions = ["Extract the text content in the image.",
                 'Extract the text content in the image.',
-                'Find the length of AC in the isosceles triangle ABC. Give the detailed steps.',
+                'Convert to markdown table.',
                 "Solve the algorithmic problem in the web page.",
                 'Is this a real plant? Analyze the reasons.',
                 'How many dogs in the image and why?',
