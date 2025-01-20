@@ -9,7 +9,7 @@
 
 
 
-[[📜 Eagle2 Paper](TODO)] [[📜 Eagle1 Paper](https://arxiv.org/pdf/2408.15998)] [[🤗 HF Models](https://huggingface.co/collections/NVEagle/eagle2-678e253a9a427b6fcbaa90fa)] [[🗨️ Demo](https://eagle-vlm.xyz)] 
+[[📜 Eagle2 Paper](TODO)] [[📜 Eagle1 Paper](https://arxiv.org/pdf/2408.15998)] [[🤗 HF Models](https://huggingface.co/collections/nvidia/eagle-2-6764ba887fa1ef387f7df067)] [[🗨️ Demo](https://eagle-vlm.xyz)] 
 
 
 
@@ -39,10 +39,10 @@ We provide the following models:
 
 | model name         | LLM  | Vision  | Max Length| HF Link|
 | ----------- | ------- |---------|-|-|
-| Eagle2-1B | [Qwen2.5-0.5B-Instruct](https://huggingface.co/Qwen/Qwen2.5-0.5B-Instruct) |  Siglip    | 16K| [🤗 link](https://huggingface.co/NVEagle/Eagle2-1B)|
-| Eagle2-2B | [Qwen2.5-1.5B-Instruct](https://huggingface.co/Qwen/Qwen2.5-1.5B-Instruct) |  Siglip    | 16K| [🤗 link](https://huggingface.co/NVEagle/Eagle2-2B)|
-| Eagle2-9B | [Qwen2.5-7B-Instruct](https://huggingface.co/Qwen/Qwen2.5-7B-Instruct) |  Siglip+ConvNext    | 16K| [🤗 link](https://huggingface.co/NVEagle/Eagle2-9B)|
-| Eagle2-34B | [Qwen2.5-32B-Instruct](https://huggingface.co/Qwen/Qwen2.5-32B-Instruct) |  Siglip+ConvNext    | 16K| [🤗 link](https://huggingface.co/NVEagle/Eagle2-34B)|
+| Eagle2-1B | [Qwen2.5-0.5B-Instruct](https://huggingface.co/Qwen/Qwen2.5-0.5B-Instruct) |  Siglip    | 16K| [🤗 link](https://huggingface.co/nvidia/Eagle2-1B)|
+| Eagle2-2B | [Qwen2.5-1.5B-Instruct](https://huggingface.co/Qwen/Qwen2.5-1.5B-Instruct) |  Siglip    | 16K| [🤗 link](https://huggingface.co/nvidia/Eagle2-2B)|
+| Eagle2-9B | [Qwen2.5-7B-Instruct](https://huggingface.co/Qwen/Qwen2.5-7B-Instruct) |  Siglip+ConvNext    | 16K| [🤗 link](https://huggingface.co/nvidia/Eagle2-9B)|
+| Eagle2-34B | [Qwen2.5-32B-Instruct](https://huggingface.co/Qwen/Qwen2.5-32B-Instruct) |  Siglip+ConvNext    | 16K| [🤗 link](https://huggingface.co/nvidia/Eagle2-34B)|
 
 ## Benchmark Results
 <details>
@@ -106,9 +106,7 @@ We provide the following models:
 | MathVista<sub>testmini</sub> |         54.3         |        53.5        |     58.3     |58.2|**63.8**|
 | MMstar |             -    |       -      |      60.9|60.7|**62.6**|
 
-##### Eagle2-34B Results
 
-TODO
 
 ## Stremlit Demo
 
@@ -535,8 +533,8 @@ class ModelWorker:
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument('--model-path', type=str, default='NVEagle/Eagle-2-1B')
-    parser.add_argument('--model-name', type=str, default='Eagle-2-1B')
+    parser.add_argument('--model-path', type=str, default='nvidia/Eagle2-1B')
+    parser.add_argument('--model-name', type=str, default='Eagle2-1B')
     parser.add_argument('--device', type=str, default='cuda')
     parser.add_argument('--load-8bit', action='store_true')
     args = parser.parse_args()

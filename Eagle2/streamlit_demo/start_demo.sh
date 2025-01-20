@@ -1,6 +1,4 @@
 python controller.py &
-CUDA_VISIBLE_DEVICES=2,3,4,5,6,7 python model_worker.py --model-path nvidia/Eagle2-34B \
- --model-name Eagle-34B  --port 6211 --worker-address http://127.0.0.1:6211&
 CUDA_VISIBLE_DEVICES=1 python model_worker.py --model-path nvidia/Eagle2-9B \
 --model-name Eagle-9B  --port 6212 --worker-address http://127.0.0.1:6212 &
 CUDA_VISIBLE_DEVICES=2 python model_worker.py --model-path nvidia/Eagle2-1B \

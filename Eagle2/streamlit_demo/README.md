@@ -8,7 +8,7 @@ pip install -r requirements.txt
 
 ## 2. Start Demo:
 
-Starting all Eagle2-1B/2B/9B/34B demos on 8xA100.
+Starting all Eagle2-1B/2B/9B demos on 8xA100.
 
 ```bash
 bash start_demo.sh

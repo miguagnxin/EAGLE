@@ -329,10 +329,9 @@ eagle_series={
     'Eagle-X5-13B-Chat': partial(Eagle, model_path='NVEagle/Eagle-X5-13B-Chat'),
     'Eagle-X5-34B-Chat': partial(Eagle, model_path='NVEagle/Eagle-X5-34B-Chat'),
     'Eagle-X5-34B-Plus': partial(Eagle, model_path='NVEagle/Eagle-X5-34B-Plus'),
-    'Eagle2-1B': partial(Eagle2Chat, model_path='NVEagle/Eagle2-1B'),
-    'Eagle2-2B': partial(Eagle2Chat, model_path='NVEagle/Eagle2-2B'),
-    'Eagle2-9B': partial(Eagle2Chat, model_path='NVEagle/Eagle2-9B'),
-    'Eagle2-34B': partial(Eagle2Chat, model_path='NVEagle/Eagle2-34B'),
+    'Eagle2-1B': partial(Eagle2Chat, model_path='nvidia/Eagle2-1B'),
+    'Eagle2-2B': partial(Eagle2Chat, model_path='nvidia/Eagle2-2B'),
+    'Eagle2-9B': partial(Eagle2Chat, model_path='nvidia/Eagle2-9B'),
 }
 
 moondream_series={
