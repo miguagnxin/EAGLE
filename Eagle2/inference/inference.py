@@ -1,165 +1,8 @@
-<div align="center">
-
-# Eagle Family:  Exploring Model Designs, Data Recipes and Training Strategies for Frontier-Class Multimodal LLMs
-
-</div>
-
-[![Code License](https://img.shields.io/badge/Code%20License-Apache_2.0-green.svg)](https://github.com/tatsu-lab/stanford_alpaca/blob/main/LICENSE)
-[![Model License](https://img.shields.io/badge/MODEL%20License-CC%20By%20NC%204.0-red.svg)](MODEL_LICENSE)
-
-
-
-[[📜 Eagle2 Paper](TODO)] [[📜 Eagle1 Paper](https://arxiv.org/pdf/2408.15998)] [[🤗 HF Models](https://huggingface.co/collections/NVEagle/eagle2-678e253a9a427b6fcbaa90fa)] [[🗨️ Demo](https://eagle-vlm.xyz)] 
-
-
-
-## Introduction
-
-We are thrilled to release our latest Eagle2 series Vision-Language Model. Open-source Vision-Language Models (VLMs) have made significant strides in narrowing the gap with proprietary models. However, critical details about data strategies and implementation are often missing, limiting reproducibility and innovation. In this project, we focus on VLM post-training from a data-centric perspective, sharing insights into building effective data strategies from scratch. By combining these strategies with robust training recipes and model design, we introduce Eagle2, a family of performant VLMs. Our work aims to empower the open-source community to develop competitive VLMs with transparent processes.
-
-
-
-<div align="center">
-<img src="./Eagle1/assets/step_by_step_abl.jpg" width="80%">
-</div>
-
-
-## Updates
-- [2025/01] 🔥 Relse Eagle-2
-- [2024/08] Release [Eagle-1](./Eagle1/README.md).
-
-
-
-
-
-
-
-## Model Zoo
-We provide the following models:
-
-| model name         | LLM  | Vision  | Max Length| HF Link|
-| ----------- | ------- |---------|-|-|
-| Eagle2-1B | [Qwen2.5-0.5B-Instruct](https://huggingface.co/Qwen/Qwen2.5-0.5B-Instruct) |  Siglip    | 16K| [🤗 link](https://huggingface.co/NVEagle/Eagle2-1B)|
-| Eagle2-2B | [Qwen2.5-1.5B-Instruct](https://huggingface.co/Qwen/Qwen2.5-1.5B-Instruct) |  Siglip    | 16K| [🤗 link](https://huggingface.co/NVEagle/Eagle2-2B)|
-| Eagle2-9B | [Qwen2.5-7B-Instruct](https://huggingface.co/Qwen/Qwen2.5-7B-Instruct) |  Siglip+ConvNext    | 16K| [🤗 link](https://huggingface.co/NVEagle/Eagle2-9B)|
-| Eagle2-34B | [Qwen2.5-32B-Instruct](https://huggingface.co/Qwen/Qwen2.5-32B-Instruct) |  Siglip+ConvNext    | 16K| [🤗 link](https://huggingface.co/NVEagle/Eagle2-34B)|
-
-## Benchmark Results
-<details>
-  <summary>Eagle2-1B Results</summary>
-
-|          Benchmark           | LLaVa-One-Vision-0.5B | InternVL2-1B | InternVL2.5-1B |Qwen2-VL-2B| Eagle2-1B|
-| :--------------------------: | :------------------: | :----------------: | :----------: |:----------: |:----------: |  
-|    DocVQA<sub>test</sub>     |         70.0         |        81.7        |     84.8     |90.1|81.8|
-|    ChartQA<sub>test</sub>    |          61.4         |        72.9        |     75.9     |73.0|77.0|
-|    InfoVQA<sub>test</sub>    |          41.8           |        50.9        |     56.0     |65.5|54.8|
-|    TextVQA<sub>val</sub>     |         -         |        70.0       |     72.0     |79.7|76.6|
-|           OCRBench           |         565          |        754         |     785      |809|767|
-|      MME<sub>sum</sub>       |        1438.0     |       1794.4      |    1950.5   |  1872.0| 1790.2|
-|         RealWorldQA          |        55.6     |        50.3       |    57.5     |62.6|55.4|
-|     AI2D<sub>test</sub>      |         57.1         |        64.1        |     69.3    | 74.7 |70.9|
-|      MMMU<sub>val</sub>      |          31.4       |    36.7     | 40.9  |41.1|38.8|
-| MMVet<sub>GPT-4-Turbo</sub>  |         32.2       |        32.7       |    48.8    | 49.5|40.9|             HallBench<sub>avg</sub>    |         27.9      |        34.0       |     39.0     |**41.7**|35.3
-| MathVista<sub>testmini</sub> |         33.8         |        37.7        |     43.2     |43.0|45.3|
-| MMstar |             37.7    |       45.7      |     50.1|48.0|48.5|
-</details>
-
-<details>
-<summary>Eagle2-2B Results</summary>
-
-|          Benchmark           | InternVL2-2B | InternVL2.5-2B | InternVL2-4B |Qwen2-VL-2B| Eagle2-2B|
-| :--------------------------: | :------------------: | :----------------: | :----------: |:----------: |:----------: |  
-|    DocVQA<sub>test</sub>     |         86.9 |        88.7  |     89.2    |90.1|88.0|
-|    ChartQA<sub>test</sub>    |          76.2        |        79.2        |     81.5     |73.0|82.0|
-|    InfoVQA<sub>test</sub>    |         58.9   |        60.9     |    67.0     |65.5|65.8|
-|    TextVQA<sub>val</sub>     |         73.4         |        74.3       |     74.4   |79.7|79.1|
-|           OCRBench           |         784          |        804         |     788      |809|818|
-|      MME<sub>sum</sub>       |   1876.8         |    2138.2    |    2059.8   |1872.0  | 2109.8
-|         RealWorldQA          |        57.3     |        60.1      |    60.7     |62.6|63.1|
-|     AI2D<sub>test</sub>      |        74.1   |        74.9     |     74.7    | 78.9 |79.3|
-|      MMMU<sub>val</sub>      |          36.3       |    43.6     | 47.9  |41.1|43.1|
-| MMVet<sub>GPT-4-Turbo</sub>  |         39.5       |       60.8       |     51.0     | 49.5|53.8|
-|   HallBench<sub>avg</sub>    |         37.9      |        42.6      |     41.9     |41.7|45.8
-| MathVista<sub>testmini</sub> |         46.3      |        51.3       |     58.6     |43.0|54.7|
-| MMstar |            50.1    |       53.7     |     54.3|48.0|56.4|
-</details>
-
-##### Eagle2-9B Results
-
-|          Benchmark           | MiniCPM-Llama3-V-2_5 | InternVL-Chat-V1-5 | InternVL2-8B |QwenVL2-7B| Eagle2-9B|
-| :--------------------------: | :------------------: | :----------------: | :----------: |:----------: |:----------: |
-|          Model Size          |         8.5B         |       25.5B        |     8.1B     | 8.3B|8.9B|
-|                              |                      |                    |              | | |
-|    DocVQA<sub>test</sub>     |         84.8         |        90.9        |     91.6     |**94.5**|92.6|
-|    ChartQA<sub>test</sub>    |          -           |        83.8        |     83.3     |83.0|**86.4**|
-|    InfoVQA<sub>test</sub>    |          -           |        72.5        |     74.8     |74.3|**77.2**|
-|    TextVQA<sub>val</sub>     |         76.6         |        80.6        |     77.4     |**84.3**|83.0|
-|           OCRBench           |         725          |        724         |     794      |845|**868**|
-|      MME<sub>sum</sub>       |        2024.6        |       2187.8       |    2210.3    |  **2326.8**|2260|
-|         RealWorldQA          |         63.5         |        66.0        |     64.4     |**70.1**|69.3|
-|     AI2D<sub>test</sub>      |         78.4         |        80.7        |     83.8     | - |**83.9**|
-|      MMMU<sub>val</sub>      |         45.8         |    45.2 / 46.8     | 49.3 / 51.8  |54.1|**56.1**|
-|  MMBench_V11<sub>test</sub>   |               |            |     79.5     |79.4|**80.6**|
-| MMVet<sub>GPT-4-Turbo</sub>  |         52.8         |        55.4        |     54.2     | 62.0|**62.2**|
-|          SEED-Image          |         72.3         |        76.0        |     76.2     ||**77.1**|
-|   HallBench<sub>avg</sub>    |         42.4         |        49.3        |     45.2     |**50.6**|49.3
-| MathVista<sub>testmini</sub> |         54.3         |        53.5        |     58.3     |58.2|**63.8**|
-| MMstar |             -    |       -      |      60.9|60.7|**62.6**|
-
-##### Eagle2-34B Results
-
-|          Benchmark           | VILA-1.5-40B | InternVL2-40B | InternVL2.5-38B |NVLM-D-72B| Eagle2-34B|
-| :--------------------------: | :------------------: | :----------------: | :----------: |:----------: |:----------: |
-|                              |                      |                    |              | | |
-|    DocVQA<sub>test</sub>     |         -         |        93.9        |     **95.3**     |92.6|93.9|
-|    ChartQA<sub>test</sub>    |          67.2           |        86.2        |     88.2     |85.2|**89.0**|
-|    InfoVQA<sub>test</sub>    |          -           |        78.7       |     **83.6**    | - |82.9|
-|    TextVQA<sub>val</sub>     |         73.6         |       83.0        |     82.7     |82.1|**84.6**|
-|           OCRBench           |         460         |        837         |     842      |853|**895**|
-|      MME<sub>sum</sub>       |        -        |      2307.5       |    **2455.8**    |  - |2406.87|
-|         RealWorldQA          |          -         |        71.8        |     **73.5**     | - |73.2|
-|     AI2D<sub>test</sub>      |         69.9        |        86.6        |     87.6     | 85.2 |**88.0**|
-|      MMMU<sub>val</sub>      |         55.1         |    55.2     | **63.9**  |59.7|63.4|
-| MMVet<sub>GPT-4-Turbo</sub>  |         -         |        65.5       |   68.8     | - |**69.3**|
-|   HallBench<sub>avg</sub>    |         -         |        56.9        |     56.8     | -|**57.3**|
-| MathVista<sub>testmini</sub> |         49.5         |        63.7        |     **71.9**     |66.6|67.0|
-| MMstar |             -    |      65.4    |      67.9|- |**69.4**|
-
-## Stremlit Demo
-
-We provide a [local chat demo](./Eagle2/streamlit_demo/README.md) powered by `Streamlit` to help users get started with `Eagle2` quickly and easily.
-This demo is built upon [InternVL's template](https://internvl.readthedocs.io/en/latest/get_started/local_chat_demo.html) and extends it with additional video input support for enhanced functionality.
-
-## Inference
-
-We provide a [inference script](./Eagle2/inference/README.md) to help you quickly start using the model. We support different input types: 
-- pure text input
-- single image input
-- multiple image input
-- video input
-
-### 0. Install the dependencies
-
-```bash
-pip install transformers==4.37.2
-pip install flash-attn
-```
-**Note**: Latest version of transformers is not compatible with the model.
-
-### 1. Prepare the Model worker
-
-<details>
-  <summary>Click to expand</summary>
-
-```python
 
 """
 A model worker executes the model.
-Copied and modified from https://github.com/OpenGVLab/InternVL/blob/main/streamlit_demo/model_worker.py
 """
-# Importing torch before transformers can cause `segmentation fault`
 from transformers import AutoModel, AutoTokenizer, TextIteratorStreamer, AutoConfig
-
 import argparse
 import base64
 import json
@@ -175,6 +18,7 @@ import torch
 import torchvision.transforms as T
 from PIL import Image
 from torchvision.transforms.functional import InterpolationMode
+
 import numpy as np
 
 
@@ -345,11 +189,9 @@ def split_model(model_path, device):
     config = AutoConfig.from_pretrained(model_path, trust_remote_code=True)
     num_layers = config.llm_config.num_hidden_layers
 
-    print('world_size', world_size)
     num_layers_per_gpu_ = math.floor(num_layers / (world_size - 1))
     num_layers_per_gpu = [num_layers_per_gpu_] * world_size
     num_layers_per_gpu[device] = num_layers - num_layers_per_gpu_ * (world_size-1)
-    print(num_layers_per_gpu)
     layer_cnt = 0
     for i, num_layer in enumerate(num_layers_per_gpu):
         for j in range(num_layer):
@@ -401,7 +243,7 @@ class ModelWorker:
             device_map = split_model(model_path, self.device)
         else:
             device_map = None
-        
+
         if device_map is not None:    
             self.model = AutoModel.from_pretrained(model_path, torch_dtype=torch.bfloat16,
                                                low_cpu_mem_usage=True,
@@ -412,7 +254,6 @@ class ModelWorker:
             self.model = AutoModel.from_pretrained(model_path, torch_dtype=torch.bfloat16,
                                                trust_remote_code=True,
                                                load_in_8bit=load_8bit).eval()  
-
         if not load_8bit and device_map is None:
             self.model = self.model.to(device)
         self.load_8bit = load_8bit
@@ -519,7 +360,7 @@ class ModelWorker:
                     
             pixel_values = [transform(item) for item in image_tiles]
             pixel_values = torch.stack(pixel_values).to(self.model.device, dtype=torch.bfloat16)
-            print(f'Split images to {pixel_values.shape}')
+            
         else:
             pixel_values = None
 
@@ -550,8 +391,8 @@ class ModelWorker:
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument('--model-path', type=str, default='NVEagle/Eagle-2-1B')
-    parser.add_argument('--model-name', type=str, default='Eagle-2-1B')
+    parser.add_argument('--model-path', type=str, default='nvidia/Eagle2-1B')
+    parser.add_argument('--model-name', type=str, default='Eagle2-1B')
     parser.add_argument('--device', type=str, default='cuda')
     parser.add_argument('--load-8bit', action='store_true')
     args = parser.parse_args()
@@ -562,99 +403,20 @@ if __name__ == '__main__':
                          args.model_name,
                          args.load_8bit,
                          args.device)
-```
-</details>
-
-
-### 2. Prepare the Prompt
-
-- Single image input
-```python
-prompt = [
+    prompt = [
         {'role': 'system', 'content': 'You are a helpful assistant.'},
         {'role': 'user', 'content': 'Describe this image in details.', 
             'image':[
                 {'url': 'https://www.nvidia.com/content/dam/en-zz/Solutions/about-nvidia/logo-and-brand/01-nvidia-logo-vert-500x200-2c50-d@2x.png'}
-            ],
+            ]
         }
     ]
-```
-
-- Multiple image input
-```python
-prompt = [
-        {'role': 'system', 'content': 'You are a helpful assistant.'},
-        {'role': 'user', 'content': 'Describe these two images in details.', 
-            'image':[
-                {'url': 'https://www.nvidia.com/content/dam/en-zz/Solutions/about-nvidia/logo-and-brand/01-nvidia-logo-vert-500x200-2c50-d@2x.png'},
-                {'url': 'https://www.nvidia.com/content/dam/en-zz/Solutions/about-nvidia/logo-and-brand/01-nvidia-logo-vert-500x200-2c50-d@2x.png'}
-            ],
-        }
-    ]
-```
-
-- Video input
-```python
-prompt = [
-        {'role': 'system', 'content': 'You are a helpful assistant.'},
-        {'role': 'user', 'content': 'Describe this video in details.', 
-            'video':[
-                'path/to/your/video.mp4'
-            ],
-        }
-    ]
-```
-
-### 3. Generate the response    
-```python
-params = {
-    'prompt': prompt,
-    'max_input_tiles': 24,
-    'temperature': 0.7,
-    'top_p': 1.0,
-    'max_new_tokens': 4096,
-    'repetition_penalty': 1.0,
+    params = {
+        'prompt': prompt,
+        'max_input_tiles': 24,
+        'temperature': 0.7,
+        'top_p': 1.0,
+        'max_new_tokens': 4096,
+        'repetition_penalty': 1.0,
     }
-worker.generate(params)
-```
-
-## Evaluation
-
-We evaluate the performance of `Eagle2` based on [VLMEvalKit](https://github.com/open-compass/VLMEvalKit). We temporarily provide a custom [vlmeval](./Eagle2/vlmeval/README.md) implementation that supports `Eagle2` in our repo, and we will support `Eagle2` in the official version as soon as possible.
-
-## TODO
-- [ ] Support vLLM Inference
-- [ ] Provide AWQ Quantization Weights
-- [ ] Provide fine-tuning scripts
-
-
-## Citation
-If you find this project useful, please cite our work:
-```
-@article{shi2024eagle,
-    title = {Eagle: Exploring The Design Space for Multimodal LLMs with Mixture of Encoders}, 
-    author={Min Shi and Fuxiao Liu and Shihao Wang and Shijia Liao and Subhashree Radhakrishnan and De-An Huang and Hongxu Yin and Karan Sapra and Yaser Yacoob and Humphrey Shi and Bryan Catanzaro and Andrew Tao and Jan Kautz and Zhiding Yu and Guilin Liu},
-    journal={arXiv:2408.15998},
-    year={2024}
-}
-```
-
-
-## License/Terms of Use
-- The code is released under the Apache 2.0 license as found in the [LICENSE](https://huggingface.co/NVEagle/Eagle-X5-13B-Chat/blob/main/LICENSE) file.
-- The pretrained model weights are released under the [Creative Commons Attribution: Non-Commercial 4.0 International](https://spdx.org/licenses/CC-BY-NC-4.0) <br>
-- The service is a research preview intended for non-commercial use only, and is subject to the following licenses and terms:
-  - Model License of Qwen2.5-7B-Instruct: [Apache-2.0](https://huggingface.co/Qwen/Qwen2.5-7B-Instruct/blob/main/LICENSE)
-  - Model License of LLama: [Llama community license](https://ai.meta.com/llama/license/)
-  - Model License of PaliGemma: [Gemma license](https://ai.google.dev/gemma/terms)
-  - Furthermore, users are reminded to ensure that their use of the dataset and checkpoints is in compliance with all applicable laws and regulations.
-
-
-
-
-## Acknowledgement
-
-- [InternVL](https://github.com/OpenGVLab/InternVL): we built the codebase based on InternVL. Thanks for the great open-source project.
-- [VLMEvalKit](https://github.com/open-compass/VLMEvalKit): We use vlmeval for evaluation. Many thanks for their wonderful tools.
-
-- Thanks to [Cambrian](https://cambrian-mllm.github.io), [LLaVA-One-Vision](https://llava-vl.github.io/blog/2024-08-05-llava-onevision/) and more great work for their efforts in organizing open-source data.
+    print(worker.generate(params))
