@@ -25,7 +25,7 @@ We are thrilled to release our latest Eagle2 series Vision-Language Model. Open-
 
 
 ## Updates
-- [2025/01] 🔥 Relse Eagle-2
+- [2025/01] 🔥 Relse Eagle-2 (WIP)
 - [2024/08] Release [Eagle-1](./Eagle1/README.md).
 
 
