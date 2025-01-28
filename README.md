@@ -9,7 +9,7 @@
 
 
 
-[[📜 Eagle2 Paper](./Eagle2/Eagle2_report.pdf)] [[📜 Eagle1 Paper](https://arxiv.org/pdf/2408.15998)] [[🤗 HF Models](https://huggingface.co/collections/nvidia/eagle-2-6764ba887fa1ef387f7df067)] [[🗨️ Demo](https://eagle-vlm.xyz)] 
+[[📜 Eagle2 Paper](http://arxiv.org/abs/2501.14818)] [[📜 Eagle1 Paper](https://arxiv.org/pdf/2408.15998)] [[🤗 HF Models](https://huggingface.co/collections/nvidia/eagle-2-6764ba887fa1ef387f7df067)] [[🗨️ Demo](https://eagle-vlm.xyz)] 
 
 
 
