@@ -1,5 +1,5 @@
 <p align="center" width="100%">
-<img src="Eagle/assets/Logo.png"  width="80%" height="80%">
+<img src="assets/Logo.png"  width="80%" height="80%">
 </p>
 <!-- # EAGLE: Exploring The Design Space for Multimodal LLMs with Mixture of Encoders -->
 
@@ -17,7 +17,7 @@
 Eagle is a family of Vision-Centric High-Resolution Multimodal LLMs. It presents a thorough exploration to strengthen multimodal LLM perception with a mixture of vision encoders and different input resolutions. The model contains a channel-concatenation-based "CLIP+X" fusion for vision experts with different architectures (ViT/ConvNets) and knowledge (detection/segmentation/OCR/SSL). The resulting family of Eagle models support up to over 1K input resolution and obtain strong results on multimodal LLM benchmarks, especially resolution-sensitive tasks such as optical character recognition and document understanding.
 
 <div align="center">
-<img src="Eagle/assets/fig-teaser.jpg" width="90%">
+<img src="assets/fig-teaser.jpg" width="90%">
 </div>
 
 
