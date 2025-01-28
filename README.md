@@ -77,39 +77,39 @@ Models trained on the [Cambrian-1](https://huggingface.co/collections/nyu-vision
 ### Knowledge & General VQA
 
 <div align="center">
-<img src="Eagle/assets/visual/VQA1.png" width="80%">
+<img src="assets/visual/VQA1.png" width="80%">
 </div><br>
 
 <div align="center">
-<img src="Eagle/assets/visual/VQA2.png" width="80%">
+<img src="assets/visual/VQA2.png" width="80%">
 </div><br>
 
 <div align="center">
-<img src="Eagle/assets/visual/VQA3.png" width="80%">
+<img src="assets/visual/VQA3.png" width="80%">
 </div>
 
 ### Autonomous Driving
 
 <div align="center">
-<img src="Eagle/assets/visual/AV1.png" width="90%">
+<img src="assets/visual/AV1.png" width="90%">
 </div><br>
 
 <div align="center">
-<img src="Eagle/assets/visual/AV2.png" width="90%">
+<img src="assets/visual/AV2.png" width="90%">
 </div>
 
 ### Infographic, Chart, OCR & Document Understanding
 
 <div align="center">
-<img src="Eagle/assets/visual/Doc1.png" width="80%">
+<img src="assets/visual/Doc1.png" width="80%">
 </div><br>
 
 <div align="center">
-<img src="Eagle/assets/visual/Doc2.png" width="80%">
+<img src="assets/visual/Doc2.png" width="80%">
 </div><br>
 
 <div align="center">
-<img src="Eagle/assets/visual/Doc3.png" width="80%">
+<img src="assets/visual/Doc3.png" width="80%">
 </div>
 
 
