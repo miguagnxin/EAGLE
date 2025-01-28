@@ -613,6 +613,16 @@ We evaluate the performance of `Eagle2` based on [VLMEvalKit](https://github.com
 ## Citation
 If you find this project useful, please cite our work:
 ```
+@misc{li2025eagle2buildingposttraining,
+      title={Eagle 2: Building Post-Training Data Strategies from Scratch for Frontier Vision-Language Models}, 
+      author={Zhiqi Li and Guo Chen and Shilong Liu and Shihao Wang and Vibashan VS and Yishen Ji and Shiyi Lan and Hao Zhang and Yilin Zhao and Subhashree Radhakrishnan and Nadine Chang and Karan Sapra and Amala Sanjay Deshmukh and Tuomas Rintamaki and Matthieu Le and Ilia Karmanov and Lukas Voegtle and Philipp Fischer and De-An Huang and Timo Roman and Tong Lu and Jose M. Alvarez and Bryan Catanzaro and Jan Kautz and Andrew Tao and Guilin Liu and Zhiding Yu},
+      year={2025},
+      eprint={2501.14818},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV},
+      url={https://arxiv.org/abs/2501.14818}, 
+}
+
 @article{shi2024eagle,
     title = {Eagle: Exploring The Design Space for Multimodal LLMs with Mixture of Encoders}, 
     author={Min Shi and Fuxiao Liu and Shihao Wang and Shijia Liao and Subhashree Radhakrishnan and De-An Huang and Hongxu Yin and Karan Sapra and Yaser Yacoob and Humphrey Shi and Bryan Catanzaro and Andrew Tao and Jan Kautz and Zhiding Yu and Guilin Liu},
