@@ -31,6 +31,11 @@ A major contribution of Eagle 2.5 is the introduction of Eagle-Video-110K, a nov
 
 
 
+ <div align="center">
+ <img src="./Eagle1/assets/eagle2.5_video_mme.jpg" width="80%">
+ </div>
+ 
+
 
 ## Updates
 - [2025/04] 🔥 Release Eagle-2.5!
