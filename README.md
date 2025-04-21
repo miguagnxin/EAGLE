@@ -9,7 +9,7 @@
 
 
 
-[[📜 Eagle2 Paper](http://arxiv.org/abs/2501.14818)] [[📜 Eagle1 Paper](https://arxiv.org/pdf/2408.15998)] [[🤗 HF Models](https://huggingface.co/collections/nvidia/eagle-2-6764ba887fa1ef387f7df067)]
+[[📜 Eagle2.5 Paper](http://arxiv.org/abs/2501.14818)] [[📜 Eagle2 Paper](http://arxiv.org/abs/2501.14818)] [[📜 Eagle1 Paper](https://arxiv.org/pdf/2408.15998)] [[🤗 HF Models](https://huggingface.co/collections/nvidia/eagle-2-6764ba887fa1ef387f7df067)]
 
 
 
@@ -33,12 +33,10 @@ A major contribution of Eagle 2.5 is the introduction of Eagle-Video-110K, a nov
 
 
 ## Updates
-- [2025/04] 🔥 Release Eagle-2.5
-- [2025/01] 🔥 Release Eagle-2
+- [2025/04] 🔥 Release Eagle-2.5!
+- [2025/01] 🔥 Release Eagle-2!
 - [2025/01] 🔥 [Eagle-1](./Eagle1/README.md) is accepted by [ICLR 2025](https://iclr.cc).
 - [2024/08] Release [Eagle-1](./Eagle1/README.md).
-
-
 
 
 
