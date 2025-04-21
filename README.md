@@ -9,23 +9,32 @@
 
 
 
-[[📜 Eagle2 Paper](http://arxiv.org/abs/2501.14818)] [[📜 Eagle1 Paper](https://arxiv.org/pdf/2408.15998)] [[🤗 HF Models](https://huggingface.co/collections/nvidia/eagle-2-6764ba887fa1ef387f7df067)] [[🗨️ Demo](https://eagle-vlm.xyz)] 
+[[📜 Eagle2 Paper](http://arxiv.org/abs/2501.14818)] [[📜 Eagle1 Paper](https://arxiv.org/pdf/2408.15998)] [[🤗 HF Models](https://huggingface.co/collections/nvidia/eagle-2-6764ba887fa1ef387f7df067)]
 
 
 
 ## Introduction
 
-We are thrilled to release our latest Eagle2 series Vision-Language Model. Open-source Vision-Language Models (VLMs) have made significant strides in narrowing the gap with proprietary models. However, critical details about data strategies and implementation are often missing, limiting reproducibility and innovation. In this project, we focus on VLM post-training from a data-centric perspective, sharing insights into building effective data strategies from scratch. By combining these strategies with robust training recipes and model design, we introduce Eagle2, a family of performant VLMs. Our work aims to empower the open-source community to develop competitive VLMs with transparent processes.
+Eagle 2.5 is a family of frontier vision-language models (VLMs) designed for long-context multimodal learning. While most existing VLMs focus on short-context tasks, Eagle 2.5 addresses the challenges of long video comprehension and high-resolution image understanding, providing a generalist framework for both. The Eagle 2.5 training framework introduces two key techniques—Automatic Degrade Sampling (ADS) and Image Area Preservation (IAP)—to preserve contextual integrity and visual details. Additionally, the training pipeline is optimized for efficient long-context data training.
+
+A major contribution of Eagle 2.5 is the introduction of Eagle-Video-110K, a novel dataset with both story-level and clip-level annotations, specifically curated for long video understanding. Eagle 2.5 demonstrates substantial improvements on long-context multimodal benchmarks, offering a robust solution to the limitations of existing VLMs. Notably, Eagle 2.5-8B achieves 72.4% on Video-MME with 512 input frames, matching the results of top-tier commercial models such as GPT-4o and large-scale open-source models like Qwen2.5-VL-72B and InternVL2.5-78B, despite having significantly fewer parameters.
+
+### Key Innovations
+
+- **Information-First Sampling**: 
+  - *Image Area Preservation (IAP)*: Optimizes image tiling to retain most of the original image area and aspect ratio, preserving fine-grained details.
+  - *Automatic Degrade Sampling (ADS)*: Dynamically balances visual and textual input, ensuring complete text retention while maximizing visual content within context length constraints.
+- **Progressive Mixed Post-Training**: 
+  - Gradually increases context length during training, enhancing the model's ability to process varying input sizes and improving information density over static sampling.
+- **Diversity-Driven Data Recipe**: 
+  - Combines open-source data (human-annotated and synthetic) with the self-curated Eagle-Video-110K dataset, collected via a diversity-driven strategy and annotated with both story-level and clip-level QA pairs.
 
 
-
-<div align="center">
-<img src="./Eagle1/assets/step_by_step_abl.jpg" width="80%">
-</div>
 
 
 ## Updates
-- [2025/01] 🔥 Release Eagle-2 (WIP)
+- [2025/04] 🔥 Release Eagle-2.5
+- [2025/01] 🔥 Release Eagle-2
 - [2025/01] 🔥 [Eagle-1](./Eagle1/README.md) is accepted by [ICLR 2025](https://iclr.cc).
 - [2024/08] Release [Eagle-1](./Eagle1/README.md).
 
@@ -45,6 +54,61 @@ We provide the following models:
 | Eagle2-9B | [Qwen2.5-7B-Instruct](https://huggingface.co/Qwen/Qwen2.5-7B-Instruct) |  Siglip+ConvNext    | 16K| [🤗 link](https://huggingface.co/nvidia/Eagle2-9B)|
 
 ## Benchmark Results
+
+
+### Eagle2.5 Video Benchmarks
+
+| Benchmark                                 | GPT-4o             | Gemini-1.5 Pro    | InternVL2.5-8B      | Qwen2.5-VL-8B       | **Eagle2.5-8B**     |
+|--------------------------------------------|--------------------|-------------------|---------------------|---------------------|---------------------|
+| MVBench<sub>test</sub>                     | -                  | -                 | 72.0                | 69.6                | **74.8**            |
+| Perception_test<sub>val</sub>              | -                  | -                 | -                   | 70.5                | **82.0**            |
+| EgoSchema<sub>fullset</sub>                | -                  | 72.2              | -                   | 65.0                | **72.2**            |
+| MMB-Video                                 | 1.63               | 1.30              | 1.68                | 1.79                | **1.94**            |
+| MLVU<sub>val</sub>                         | -                  | -                 | 68.9                | 70.2                | **77.6**            |
+| LVBench<sub>val</sub>                      | 66.7               | 64.0              | 60.0                | 56.0                | **66.4**            |
+| Video-MME<sub>w/o subtitle</sub>           | 71.9               | 75.0              | 64.2                | 65.1                | **72.4**            |
+| Video-MME<sub>w subtitle</sub>             | 77.2               | 81.3              | 66.9                | 71.6                | **75.7**            |
+| CG-Bench<sub>Clue</sub>                    | 58.6               | 50.9              | -                   | 44.5                | **55.8**            |
+| CG-Bench<sub>Long</sub>                    | 44.9               | 37.8              | -                   | 35.5                | **46.6**            |
+| CG-Bench<sub>mIoU</sub>                    | 5.73               | 3.85              | -                   | 2.48                | **13.4**            |
+| HourVideo<sub>Dev</sub>                    | -                  | 37.2              | -                   | -                   | **44.5**            |
+| HourVideo<sub>Test</sub>                   | -                  | 37.4              | -                   | -                   | **41.8**            |
+| Charade-STA<sub>mIoU</sub>                 | 35.7               | -                 | -                   | 43.6                | **65.9**            |
+| HD-EPIC                                   | -                  | 37.6                 | -                   | -                   | **42.9**            |
+| HRVideoBench                              | -                  | -                 | -                   | -                   | **68.5**            |
+| EgoPlan<sub>val</sub>                      | -                  | -                 | -                   | -                   | **45.3**            |
+
+### Eagle2.5 Embodied Benchmarks
+| Benchmark                                 | GPT-4o             | Gemini-1.5 Pro    | InternVL2.5-8B      | Qwen2.5-VL-8B       | **Eagle2.5-8B**     |
+|--------------------------------------------|--------------------|-------------------|---------------------|---------------------|---------------------|
+| OpenEQA                                    | -                  | -                 | -                   | -                   | **63.5**            |
+| ERQA                                       | 47.0                  | 41.8                 | -                   | -                   | **38.3**            |
+| EgoPlan<sub>val</sub>                      | -                  | -                 | -                   | -                   | **45.3**            |
+
+
+
+### Eagle2.5 Image Benchmarks
+
+| Benchmark                                 | GPT-4o             | Gemini-1.5 Pro    | InternVL2.5-8B      | Qwen2.5-VL-8B       | **Eagle2.5-8B**     |
+|--------------------------------------------|--------------------|-------------------|---------------------|---------------------|---------------------|
+| DocVQA<sub>test</sub>                      | 92.8               | 93.1              | 93.0                | 95.7                | **94.1**            |
+| ChartQA<sub>test</sub>                     | 85.7               | 87.2              | 84.8                | 87.3                | **87.5**            |
+| InfoVQA<sub>test</sub>                     | 79.2               | 81.0              | 77.6                | 82.6                | **80.4**            |
+| TextVQA<sub>val</sub>                      | 77.4               | 78.8              | 79.1                | 84.9                | **83.7**            |
+| OCRBench<sub>test</sub>                    | 736                | 754               | 822                 | 864                 | **869**             |
+| MMstar<sub>test</sub>                      | 64.7               | 59.1              | 62.8                | 63.9                | **66.2**            |
+| RWQA<sub>test</sub>                        | 75.4               | 67.5              | 70.1                | 68.5                | **76.7**            |
+| AI2D<sub>test</sub>                        | 84.6               | 79.1              | 84.5                | 83.9                | **84.5**            |
+| MMMU<sub>val</sub>                         | 69.1               | 62.2              | 56.0                | 58.6                | **55.8**            |
+| MMBench_V11<sub>test</sub>                 | 83.1               | 74.6              | 83.2                | 82.6                | **81.7**            |
+| MMVet<sub>GPT-4-Turbo</sub>                | 69.1               | 64.0              | 62.8                | 67.1                | **62.9**            |
+| HallBench<sub>avg</sub>                    | 55.0               | 45.6              | 50.1                | 52.9                | **54.7**            |
+| MathVista<sub>testmini</sub>               | 63.8               | 63.9              | 64.4                | 68.2                | **67.8**            |
+| Avg Score                                 | 74.9               | 71.7              | 73.1                | 75.6                | **75.6**            |
+
+
+*All numbers are directly extracted from Table 2 and Table 3 of the Eagle 2.5 Tech Report.*
+
 <details>
   <summary>Eagle2-1B Results</summary>
 
@@ -84,8 +148,8 @@ We provide the following models:
 | MMstar |            50.1    |       53.7     |     54.3|48.0|56.4|
 </details>
 
-##### Eagle2-9B Results
-
+<details>
+<summary>Eagle2-9B Results</summary>
 |          Benchmark           | MiniCPM-Llama3-V-2_5 | InternVL-Chat-V1-5 | InternVL2-8B |QwenVL2-7B| Eagle2-9B|
 | :--------------------------: | :------------------: | :----------------: | :----------: |:----------: |:----------: |
 |          Model Size          |         8.5B         |       25.5B        |     8.1B     | 8.3B|8.9B|
@@ -106,7 +170,7 @@ We provide the following models:
 | MathVista<sub>testmini</sub> |         54.3         |        53.5        |     58.3     |58.2|**63.8**|
 | MMstar |             -    |       -      |      60.9|60.7|**62.6**|
 
-
+</details>
 
 ## Stremlit Demo
 
