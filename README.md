@@ -9,7 +9,7 @@
 
 
 
-[[📜 Eagle2.5 Paper](https://arxiv.org/abs/2504.15271)] [[📜 Eagle2 Paper](http://arxiv.org/abs/2501.14818)] [[📜 Eagle1 Paper](https://arxiv.org/pdf/2408.15998)] [[🤗 HF Models](https://huggingface.co/collections/nvidia/eagle-2-6764ba887fa1ef387f7df067)] [[🤗 HF Demo](https://huggingface.co/spaces/nvidia/Eagle2-Demo)] [[Project Page](https://nvlabs.github.io/EAGLE/)]
+[[📜 Eagle2.5 Paper](https://arxiv.org/abs/2504.15271)] [[📜 Eagle2 Paper](http://arxiv.org/abs/2501.14818)] [[📜 Eagle1 Paper](https://arxiv.org/pdf/2408.15998)] [[🤗 HF Models](https://huggingface.co/collections/nvidia/eagle-2-6764ba887fa1ef387f7df067)] [[🤗 HF Demo](https://huggingface.co/spaces/nvidia/Eagle2-Demo)] [[Local-Host Demo](https://caada3eae7e8fc613c.gradio.live/)] [[Project Page](https://nvlabs.github.io/EAGLE/)]
 
 
 
