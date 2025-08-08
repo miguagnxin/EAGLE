@@ -15,7 +15,7 @@
 
 
 ## Updates
-- [2025/04] 🔥 Release Eagle 2.5 [model](https://huggingface.co/nvidia/Eagle2.5-8B).
+- [2025/07] 🔥 Release Eagle 2.5 [model](https://huggingface.co/nvidia/Eagle2.5-8B).
 - [2025/04] 🎉 Release Eagle 2.5 [tech report](https://arxiv.org/abs/2504.15271).
 - [2025/01] 🎉 Release Eagle 2 [tech report](http://arxiv.org/abs/2501.14818) and [model](https://huggingface.co/collections/nvidia/eagle-2-6764ba887fa1ef387f7df067).
 - [2025/01] 🎉 [Eagle](./Eagle/README.md) is accepted by [ICLR 2025](https://iclr.cc).
@@ -102,49 +102,49 @@ We also introduce Eagle-Video-110K, a novel dataset with both story-level and cl
 
 | Benchmark                                  | GPT-4o             | Gemini-1.5 Pro    | InternVL2.5-8B      | Qwen2.5-VL-8B       | **Eagle2.5-8B**     |
 |--------------------------------------------|--------------------|-------------------|---------------------|---------------------|---------------------|
-| MVBench<sub>test</sub>                     | -                  | -                 | 72.0                | 69.6                | **74.8**            |
-| Perception_test<sub>val</sub>              | -                  | -                 | -                   | 70.5                | **82.0**            |
-| EgoSchema<sub>fullset</sub>                | -                  | 72.2              | -                   | 65.0                | **72.2**            |
-| MMB-Video                                  | 1.63               | 1.30              | 1.68                | 1.79                | **1.94**            |
-| MLVU<sub>val</sub>                         | -                  | -                 | 68.9                | 70.2                | **77.6**            |
-| LVBench<sub>val</sub>                      | 66.7               | 64.0              | 60.0                | 56.0                | **66.4**            |
-| Video-MME<sub>w/o subtitle</sub>           | 71.9               | 75.0              | 64.2                | 65.1                | **72.4**            |
-| Video-MME<sub>w subtitle</sub>             | 77.2               | 81.3              | 66.9                | 71.6                | **75.7**            |
-| CG-Bench<sub>Clue</sub>                    | 58.6               | 50.9              | -                   | 44.5                | **55.8**            |
-| CG-Bench<sub>Long</sub>                    | 44.9               | 37.8              | -                   | 35.5                | **46.6**            |
-| CG-Bench<sub>mIoU</sub>                    | 5.73               | 3.85              | -                   | 2.48                | **13.4**            |
-| HourVideo<sub>Dev</sub>                    | -                  | 37.2              | -                   | -                   | **44.5**            |
-| HourVideo<sub>Test</sub>                   | -                  | 37.4              | -                   | -                   | **41.8**            |
-| Charade-STA<sub>mIoU</sub>                 | 35.7               | -                 | -                   | 43.6                | **65.9**            |
-| HD-EPIC                                    | -                  | 37.6              | -                   | -                   | **42.9**            |
-| HRVideoBench                               | -                  | -                 | -                   | -                   | **68.5**            |
-| EgoPlan<sub>val</sub>                      | -                  | -                 | -                   | -                   | **45.3**            |
+| MVBench<sub>test</sub>                     | -                  | -                 | 72.0                | 69.6                   | 74.8            |
+| Perception_test<sub>val</sub>              | -                  | -                 | -                   | 70.5                | 82.0            |
+| EgoSchema<sub>fullset</sub>                | -                  | 72.2              | -                   | 65.0                | 72.2            |
+| MMB-Video                                  | 1.63               | 1.30              | 1.68                | 1.79                  | 1.94            |
+| MLVU<sub>val</sub>                         | -                  | -                 | 68.9                | 70.2                   | 77.6            |
+| LVBench<sub>val</sub>                      | 66.7               | 64.0              | 60.0                | 56.0                   | 66.4            |
+| Video-MME<sub>w/o subtitle</sub>           | 71.9               | 75.0              | 64.2                | 65.1                   | 72.4            |
+| Video-MME<sub>w subtitle</sub>             | 77.2               | 81.3              | 66.9                | 71.6                   | 75.7            |
+| CG-Bench<sub>Clue</sub>                    | 58.6               | 50.9              | -                   | 44.5                | 55.8            |
+| CG-Bench<sub>Long</sub>                    | 44.9               | 37.8              | -                   | 35.5                | 46.6            |
+| CG-Bench<sub>mIoU</sub>                    | 5.73               | 3.85              | -                   | 2.48                | 13.4            |
+| HourVideo<sub>Dev</sub>                    | -                  | 37.2              | -                   | -                   | 44.5            |
+| HourVideo<sub>Test</sub>                   | -                  | 37.4              | -                   | -                   | 41.8            |
+| Charade-STA<sub>mIoU</sub>                 | 35.7               | -                 | -                   | 43.6                | 65.9            |
+| HD-EPIC                                    | -                  | 37.6              | -                   | -                   | 42.9            |
+| HRVideoBench                               | -                  | -                 | -                   | -                   | 68.5            |
+| EgoPlan<sub>val</sub>                      | -                  | -                 | -                   | -                   | 45.3            |
 
 ### 🦾 Embodied Benchmarks
 | Benchmark                                  | GPT-4o             | Gemini-1.5 Pro    | InternVL2.5-8B      | Qwen2.5-VL-8B       | **Eagle2.5-8B**     |
 |--------------------------------------------|--------------------|-------------------|---------------------|---------------------|---------------------|
-| OpenEQA                                    | -                  | -                 | -                   | -                   | **63.5**            |
-| ERQA                                       | 47.0               | 41.8              | -                   | -                   | **38.3**            |
-| EgoPlan<sub>val</sub>                      | -                  | -                 | -                   | -                   | **45.3**            |
+| OpenEQA                                    | -                  | -                 | -                   | -                   | 63.5            |
+| ERQA                                       | 47.0               | 41.8              | -                   | -                   | 38.3            |
+| EgoPlan<sub>val</sub>                      | -                  | -                 | -                   | -                   | 45.3            |
 
 ### 🖼️ Image Benchmarks
 
 | Benchmark                                  | GPT-4o             | Gemini-1.5 Pro    | InternVL2.5-8B      | Qwen2.5-VL-8B       | **Eagle2.5-8B**     |
 |--------------------------------------------|--------------------|-------------------|---------------------|---------------------|---------------------|
-| DocVQA<sub>test</sub>                      | 92.8               | 93.1              | 93.0                | 95.7                | **94.1**            |
-| ChartQA<sub>test</sub>                     | 85.7               | 87.2              | 84.8                | 87.3                | **87.5**            |
-| InfoVQA<sub>test</sub>                     | 79.2               | 81.0              | 77.6                | 82.6                | **80.4**            |
-| TextVQA<sub>val</sub>                      | 77.4               | 78.8              | 79.1                | 84.9                | **83.7**            |
-| OCRBench<sub>test</sub>                    | 736                | 754               | 822                 | 864                 | **869**             |
-| MMstar<sub>test</sub>                      | 64.7               | 59.1              | 62.8                | 63.9                | **66.2**            |
-| RWQA<sub>test</sub>                        | 75.4               | 67.5              | 70.1                | 68.5                | **76.7**            |
-| AI2D<sub>test</sub>                        | 84.6               | 79.1              | 84.5                | 83.9                | **84.5**            |
-| MMMU<sub>val</sub>                         | 69.1               | 62.2              | 56.0                | 58.6                | **55.8**            |
-| MMBench_V11<sub>test</sub>                 | 83.1               | 74.6              | 83.2                | 82.6                | **81.7**            |
-| MMVet<sub>GPT-4-Turbo</sub>                | 69.1               | 64.0              | 62.8                | 67.1                | **62.9**            |
-| HallBench<sub>avg</sub>                    | 55.0               | 45.6              | 50.1                | 52.9                | **54.7**            |
-| MathVista<sub>testmini</sub>               | 63.8               | 63.9              | 64.4                | 68.2                | **67.8**            |
-| Avg Score                                  | 74.9               | 71.7              | 73.1                | 75.6                | **75.6**            |
+| DocVQA<sub>test</sub>                      | 92.8               | 93.1              | 93.0                | 95.7                | 94.1            |
+| ChartQA<sub>test</sub>                     | 85.7               | 87.2              | 84.8                | 87.3                | 87.5            |
+| InfoVQA<sub>test</sub>                     | 79.2               | 81.0              | 77.6                | 82.6                | 80.4            |
+| TextVQA<sub>val</sub>                      | 77.4               | 78.8              | 79.1                | 84.9                | 83.7            |
+| OCRBench<sub>test</sub>                    | 736                | 754               | 822                 | 864                 | 869             |
+| MMstar<sub>test</sub>                      | 64.7               | 59.1              | 62.8                | 63.9                | 66.2            |
+| RWQA<sub>test</sub>                        | 75.4               | 67.5              | 70.1                | 68.5                | 76.7            |
+| AI2D<sub>test</sub>                        | 84.6               | 79.1              | 84.5                | 83.9                | 84.5            |
+| MMMU<sub>val</sub>                         | 69.1               | 62.2              | 56.0                | 58.6                | 55.8            |
+| MMBench_V11<sub>test</sub>                 | 83.1               | 74.6              | 83.2                | 82.6                | 81.7            |
+| MMVet<sub>GPT-4-Turbo</sub>                | 69.1               | 64.0              | 62.8                | 67.1                | 62.9            |
+| HallBench<sub>avg</sub>                    | 55.0               | 45.6              | 50.1                | 52.9                | 54.7            |
+| MathVista<sub>testmini</sub>               | 63.8               | 63.9              | 64.4                | 68.2                | 67.8            |
+| Avg Score                                  | 74.9               | 71.7              | 73.1                | 75.6                | 75.6            |
 
 *All numbers are directly extracted from Table 2 and Table 3 of the Eagle 2.5 Tech Report.*
 
