@@ -33,7 +33,7 @@ import argparse
 from transformers import TextIteratorStreamer
 from threading import Thread
 
-model_path = "NVEagle/Eagle-X5-13B-Chat"
+model_path = "NVEagle/Eagle-X5-7B"
 conv_mode = "vicuna_v1"
 image_path = "assets/georgia-tech.jpeg"
 input_prompt = "Describe this image."
