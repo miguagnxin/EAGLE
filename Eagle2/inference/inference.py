@@ -19,6 +19,26 @@ import torchvision.transforms as T
 from PIL import Image
 from torchvision.transforms.functional import InterpolationMode
 
+# Disable Flash-Attention / SDPA fast kernels globally (use safe math attention)
+# This avoids using flash-attn/xFormers kernels even if installed and available.
+try:
+	# Prefer environment override so child libs respect it
+	os.environ.setdefault("PYTORCH_SDP_ATTENTION_BACKEND", "math")
+	# Some stacks check these flags
+	os.environ.setdefault("USE_FLASH_ATTENTION_2", "0")
+	os.environ.setdefault("XFORMERS_DISABLED", "1")
+	# Explicitly disable CUDA SDPA fast paths in PyTorch 2.x
+	if hasattr(torch, "backends") and hasattr(torch.backends, "cuda"):
+		if hasattr(torch.backends.cuda, "enable_flash_sdp"):
+			torch.backends.cuda.enable_flash_sdp(False)
+		if hasattr(torch.backends.cuda, "enable_mem_efficient_sdp"):
+			torch.backends.cuda.enable_mem_efficient_sdp(False)
+		if hasattr(torch.backends.cuda, "enable_math_sdp"):
+			torch.backends.cuda.enable_math_sdp(True)
+except Exception:
+	# Fail-safe: never block inference because of backend toggles
+	pass
+
 import numpy as np
 
 
